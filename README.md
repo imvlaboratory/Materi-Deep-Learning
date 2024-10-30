@@ -45,9 +45,9 @@ Dengan perkembangan teknologi dan meningkatnya volume data, deep learning terus 
     <img src="contents/Neuron-Model.png" alt="Neural Network" width="720" align="center">
 </p>
 
-Dalam Machine Learning, Neural Network yang juga disebut Jaringan Saraf Tiruan (JST) atau Artificial Neural Network (ANN) adalah model algoritma yang terinspirasi oleh struktur dan fungsi jaringan saraf biologis dalam otak hewan (termasuk manusia).
+**Neural Network**, yang juga disebut **Jaringan Saraf Tiruan (JST)** atau **Artificial Neural Network (ANN)**, adalah model algoritma yang terinspirasi oleh struktur dan fungsi jaringan saraf biologis dalam otak hewan (termasuk manusia). ANN meniru cara kerja neuron biologis dalam memproses informasi, di mana neuron-neuron ini bekerja sama untuk memecahkan berbagai masalah kompleks.
 
-### Arsitektur Artificial Neural Network (ANN)
+## Arsitektur Artificial Neural Network (ANN)
 
 <p align="center">
     <img src="contents/Activation-Function.gif" alt="Activation Function" width="720" align="center">
@@ -61,7 +61,7 @@ Sebuah ANN terdiri dari unit-unit atau node-node yang saling terhubung yang dise
 
 Biasanya, neuron-neuron dikelompokkan ke dalam lapisan-lapisan. Lapisan-lapisan yang berbeda mungkin melakukan transformasi yang berbeda pada input mereka. Sinyal-sinyal bergerak dari lapisan pertama (lapisan input) ke lapisan terakhir (lapisan output), dan mungkin melewati beberapa lapisan antara (lapisan tersembunyi) yang disebut hidden layer. Suatu jaringan disebut deep neural network jika memiliki setidaknya dua hidden layer.
 
-#### **Input Layer**
+### **Input Layer**
 
 Lapisan input dari ANN terdiri dari neuron-neuron input yang membawa data awal ke dalam sistem untuk diproses lebih lanjut oleh lapisan-lapisan artificial neuron berikutnya. Lapisan input adalah awal dari alur kerja untuk ANN. Jumlah neuron input sama dengan jumlah fitur pada data input.
 
@@ -87,7 +87,7 @@ tf.keras.layers.Dense(input_shape=(height, width, color_channels))
 
 - input_shape/shape → dimensi ruang input
 
-#### **Hidden Layer**
+### **Hidden Layer**
 
 Dalam Artificial Neural Network (ANN), `hidden layer` adalah lapisan neuron buatan yang dapat ditambahkan atau diterapkan dalam rancangan. Lapisan ini bukanlah lapisan input maupun lapisan output, lapisan ini berada di antara keduanya. Contoh dari ANN yang menggunakan hidden layer adalah `feedforward neural network`.
 
@@ -104,7 +104,7 @@ Hidden layer mengubah input dari lapisan input ke lapisan output. Dilakukan deng
     - units → dimensi ruang output
     - activation → fungsi aktivasi untuk digunakan, misalnya ReLu
 
-#### **Output Layer**
+### **Output Layer**
 
 Lapisan output pada artificial neural network adalah lapisan terakhir yang menghasilkan prediksi atau hasil akhir dari model. Lapisan ini menerima input dari hidden layer sebelumnya, mengolahnya, dan mengeluarkan hasil yang digunakan untuk menentukan keputusan atau klasifikasi akhir. Jumlah neuron disesuaikan dengan permasalahan yang dihadapi.
 
@@ -132,20 +132,60 @@ Artificial Neural Network digunakan untuk berbagai tugas, termasuk pemodelan pre
 
 ### Feedforward Neural Networks (FNNs)
 
-Let's start with the most basic type of neural network: the Feedforward Neural Network (FNN). As the name suggests, data in an FNN flows in one direction — from the input layer, through the hidden layers, and finally to the output layer. There are no loops or cycles; it's a straightforward process. This simplicity makes FNNs easy to understand and implement, which is why they're often the first type of network you'll encounter when learning about ANNs.
+**Feedforward Neural Networks (FNNs)** adalah tipe neural network yang paling sederhana. Data mengalir hanya dalam satu arah, dari lapisan input ke lapisan output, melewati hidden layer (jika ada) tanpa adanya aliran balik (feedback loop). FNN cocok untuk tugas klasifikasi dan regresi dasar, di mana hubungan antara input dan output bersifat langsung tanpa mempertimbangkan urutan waktu.
 
-FNNs are commonly used for tasks like image classification, where the goal is to assign labels to images, and regression problems, where you're predicting a continuous value based on input data. For example, if you wanted to predict house prices based on features like square footage and number of bedrooms, an FNN could be a good fit.
+- **Contoh Penggunaan**: FNN dapat digunakan dalam pengenalan pola sederhana seperti klasifikasi gambar statis atau untuk memprediksi nilai berkelanjutan seperti harga berdasarkan fitur tertentu.
 
+- **Keterbatasan**: Karena tidak memiliki mekanisme untuk menangani data berurutan, FNN tidak cocok untuk aplikasi yang membutuhkan konteks waktu atau urutan data.
+
+```python
+# Contoh FNN menggunakan TensorFlow
+model = tf.keras.Sequential([
+    tf.keras.layers.Dense(128, activation='relu'),
+    tf.keras.layers.Dense(10, activation='softmax')
+])
+```
 ### Convolutional Neural Networks (CNNs)
 
-Next up, we have Convolutional Neural Networks (CNNs), which are specifically designed for processing grid-like data such as images. CNNs are like the vision specialists of the neural network world. They use convolutional layers to scan over an image, detecting patterns like edges, textures, and even complex shapes. This ability to capture spatial hierarchies makes CNNs incredibly powerful for tasks like image recognition, object detection, and even video analysis.
+**Convolutional Neural Networks (CNNs)** adalah jaringan yang dirancang khusus untuk memproses data yang memiliki struktur grid, seperti gambar atau video. CNN menggunakan lapisan konvolusi untuk melakukan operasi pada patch-patch kecil dalam gambar, yang memungkinkan mereka menangkap fitur-fitur seperti tepi, tekstur, dan objek kompleks dengan efisiensi tinggi.
 
-Imagine you're building an app that can recognize objects in photos. A CNN would be your go-to tool, as it can identify and classify different objects within an image with high accuracy. CNNs are the backbone of many modern computer vision applications, from facial recognition systems to self-driving cars.
+- **Lapisan Utama dalam CNN**:
+    - **Convolutional Layer**: Menerapkan filter (kernel) pada input untuk mengekstrak fitur penting. Filter ini bergerak (melakukan convolusi) di seluruh gambar untuk mengenali pola.
+    - **Pooling Layer**: Menyederhanakan data dengan mengurangi dimensi dan fokus pada fitur-fitur dominan melalui teknik seperti max pooling.
+    - **Fully Connected Layer**: Menyambungkan hasil dari lapisan sebelumnya ke lapisan output untuk klasifikasi atau regresi.
+- **Contoh Penggunaan**: CNN sering digunakan dalam aplikasi computer vision seperti klasifikasi citra, deteksi objek, pengenalan wajah, dan diagnosis medis berbasis citra.
+- **Kelebihan CNN**: CNN mampu mengenali pola pada gambar meskipun terjadi rotasi, pergeseran, atau perubahan ukuran objek.
+
+```python
+# Contoh CNN menggunakan TensorFlow
+model = tf.keras.Sequential([
+    tf.keras.layers.Conv2D(32, (3, 3), activation='relu', input_shape=(64, 64, 3)),
+    tf.keras.layers.MaxPooling2D(2, 2),
+    tf.keras.layers.Flatten(),
+    tf.keras.layers.Dense(128, activation='relu'),
+    tf.keras.layers.Dense(10, activation='softmax')
+])
+```
 
 ### Recurrent Neural Networks (RNNs)
 
-Recurrent Neural Networks (RNNs) are a bit different from FNNs and CNNs because they're designed to handle sequential data. This means they're great at processing data where the order of information matters, like time series data or sentences in a text. RNNs have loops in their architecture that allow information to be passed from one step of the sequence to the next, making them ideal for tasks that require memory of previous inputs.
+**Recurrent Neural Networks (RNNs)** adalah tipe neural network yang cocok untuk data berurutan, seperti teks, data waktu, dan audio. Tidak seperti FNN, RNN memiliki “memori” internal melalui loop pada neuron, yang memungkinkan informasi sebelumnya disimpan dan digunakan dalam prediksi saat ini. Hal ini memungkinkan RNN mempertimbangkan urutan data atau konteks waktu.
 
-For example, if you're developing a speech recognition system or a language translation tool, an RNN would be a strong choice. It can take into account the context of previous words or sounds to make more accurate predictions about what comes next. Popular RNN variants like Long Short-Term Memory (LSTM) and Gated Recurrent Units (GRU) have further improved their ability to capture long-range dependencies in sequences.
+- **Lapisan Utama dalam RNN**:
+    - **Recurrent Layer**: Memproses setiap elemen dalam urutan secara bertahap, dengan menyimpan informasi dari langkah-langkah sebelumnya. Setiap neuron berulang kali memproses input saat ini dan informasi yang disimpan.
+    - **Hidden State**: Menyimpan hasil komputasi dari satu waktu ke waktu berikutnya dalam urutan data.
+- **Varian RNN**:
+    - **LSTM (Long Short-Term Memory)**: RNN yang dirancang untuk menangani data dengan ketergantungan jangka panjang dengan menggunakan tiga jenis “gate” (input, output, dan forget gate).
+    - **GRU (Gated Recurrent Unit)**: Mirip dengan LSTM tetapi memiliki struktur yang lebih sederhana, cocok untuk aplikasi yang membutuhkan perhitungan lebih cepat.
+- **Contoh Penggunaan**: RNN dan variannya digunakan untuk aplikasi yang melibatkan urutan, seperti pengenalan ucapan, analisis sentimen dalam teks, prediksi pasar saham, dan terjemahan bahasa otomatis.
+
+```python
+# Contoh RNN menggunakan TensorFlow
+model = tf.keras.Sequential([
+    tf.keras.layers.Embedding(input_dim=1000, output_dim=64),
+    tf.keras.layers.SimpleRNN(128),
+    tf.keras.layers.Dense(1, activation='sigmoid')
+])
+```
 
 <br>
