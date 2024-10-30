@@ -41,23 +41,23 @@ Dengan perkembangan teknologi dan meningkatnya volume data, deep learning terus 
 
 ## Artificial Neural Network (ANN)
 
-<div align="center">
+<p align="center">
     <img src="contents/Neuron-Model.png" alt="Neural Network" width="720" align="center">
-</div>
+</p>
 
 Dalam Machine Learning, Neural Network yang juga disebut Jaringan Saraf Tiruan (JST) atau Artificial Neural Network (ANN) adalah model algoritma yang terinspirasi oleh struktur dan fungsi jaringan saraf biologis dalam otak hewan (termasuk manusia).
 
-### **Arsitektur Artificial Neural Network (ANN)**
+### Arsitektur Artificial Neural Network (ANN)
 
-<div align="center">
+<p align="center">
     <img src="contents/Activation-Function.gif" alt="Activation Function" width="720" align="center">
-</div>
+</p>
 
 Sebuah ANN terdiri dari unit-unit atau node-node yang saling terhubung yang disebut neuron buatan atau artificial neuron, yang secara teori meniru neuron-neuron di otak. Node-node ini dihubungkan oleh tepi-tepi (edges), yang meniru sinapsis di otak. Setiap neuron buatan menerima sinyal dari neuron-neuron yang terhubung, kemudian memprosesnya dan mengirimkan sinyal ke neuron-neuron lain yang terhubung. "Sinyal" tersebut adalah bilangan riil, dan keluaran dari setiap neuron dihitung oleh suatu fungsi non-linear dari jumlah inputnya, yang disebut fungsi aktivasi (activation function). Kekuatan sinyal di setiap koneksi ditentukan oleh sebuah bobot (weight), yang disesuaikan selama proses pembelajaran.
 
-<div align="center">
+<p align="center">
     <img src="contents/Neural-Network.gif" alt="Neural Network" width="720" align="center">
-</div>
+</p>
 
 Biasanya, neuron-neuron dikelompokkan ke dalam lapisan-lapisan. Lapisan-lapisan yang berbeda mungkin melakukan transformasi yang berbeda pada input mereka. Sinyal-sinyal bergerak dari lapisan pertama (lapisan input) ke lapisan terakhir (lapisan output), dan mungkin melewati beberapa lapisan antara (lapisan tersembunyi) yang disebut hidden layer. Suatu jaringan disebut deep neural network jika memiliki setidaknya dua hidden layer.
 
@@ -129,3 +129,23 @@ Lapisan output pada artificial neural network adalah lapisan terakhir yang mengh
 Artificial Neural Network digunakan untuk berbagai tugas, termasuk pemodelan prediktif, kontrol adaptif, dan pemecahan masalah dalam kecerdasan buatan. Artificial Neural Network dapat belajar dari pengalaman, dan dapat menarik kesimpulan dari kumpulan informasi yang kompleks.
 
 <br>
+
+## Jenis-Jenis Artificial Neural Network
+
+### Feedforward Neural Networks (FNNs)
+
+Let's start with the most basic type of neural network: the Feedforward Neural Network (FNN). As the name suggests, data in an FNN flows in one direction — from the input layer, through the hidden layers, and finally to the output layer. There are no loops or cycles; it's a straightforward process. This simplicity makes FNNs easy to understand and implement, which is why they're often the first type of network you'll encounter when learning about ANNs.
+
+FNNs are commonly used for tasks like image classification, where the goal is to assign labels to images, and regression problems, where you're predicting a continuous value based on input data. For example, if you wanted to predict house prices based on features like square footage and number of bedrooms, an FNN could be a good fit.
+
+### Convolutional Neural Networks (CNNs)
+
+Next up, we have Convolutional Neural Networks (CNNs), which are specifically designed for processing grid-like data such as images. CNNs are like the vision specialists of the neural network world. They use convolutional layers to scan over an image, detecting patterns like edges, textures, and even complex shapes. This ability to capture spatial hierarchies makes CNNs incredibly powerful for tasks like image recognition, object detection, and even video analysis.
+
+Imagine you're building an app that can recognize objects in photos. A CNN would be your go-to tool, as it can identify and classify different objects within an image with high accuracy. CNNs are the backbone of many modern computer vision applications, from facial recognition systems to self-driving cars.
+
+### Recurrent Neural Networks (RNNs)
+
+Recurrent Neural Networks (RNNs) are a bit different from FNNs and CNNs because they're designed to handle sequential data. This means they're great at processing data where the order of information matters, like time series data or sentences in a text. RNNs have loops in their architecture that allow information to be passed from one step of the sequence to the next, making them ideal for tasks that require memory of previous inputs.
+
+For example, if you're developing a speech recognition system or a language translation tool, an RNN would be a strong choice. It can take into account the context of previous words or sounds to make more accurate predictions about what comes next. Popular RNN variants like Long Short-Term Memory (LSTM) and Gated Recurrent Units (GRU) have further improved their ability to capture long-range dependencies in sequences.
