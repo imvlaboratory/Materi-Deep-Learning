@@ -128,8 +128,6 @@ Lapisan output pada artificial neural network adalah lapisan terakhir yang mengh
 
 Artificial Neural Network digunakan untuk berbagai tugas, termasuk pemodelan prediktif, kontrol adaptif, dan pemecahan masalah dalam kecerdasan buatan. Artificial Neural Network dapat belajar dari pengalaman, dan dapat menarik kesimpulan dari kumpulan informasi yang kompleks.
 
-<br>
-
 ## Jenis-Jenis Artificial Neural Network
 
 ### Feedforward Neural Networks (FNNs)
@@ -149,3 +147,5 @@ Imagine you're building an app that can recognize objects in photos. A CNN would
 Recurrent Neural Networks (RNNs) are a bit different from FNNs and CNNs because they're designed to handle sequential data. This means they're great at processing data where the order of information matters, like time series data or sentences in a text. RNNs have loops in their architecture that allow information to be passed from one step of the sequence to the next, making them ideal for tasks that require memory of previous inputs.
 
 For example, if you're developing a speech recognition system or a language translation tool, an RNN would be a strong choice. It can take into account the context of previous words or sounds to make more accurate predictions about what comes next. Popular RNN variants like Long Short-Term Memory (LSTM) and Gated Recurrent Units (GRU) have further improved their ability to capture long-range dependencies in sequences.
+
+<br>
