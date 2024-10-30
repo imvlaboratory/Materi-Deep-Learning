@@ -132,6 +132,10 @@ Artificial Neural Network digunakan untuk berbagai tugas, termasuk pemodelan pre
 
 ### Feedforward Neural Networks (FNNs)
 
+<p align="center">
+    <img src="contents/FNN.gif" alt="Feedforward Neural Networks" width="720" align="center">
+</p>
+
 **Feedforward Neural Networks (FNNs)** adalah tipe neural network yang paling sederhana. Data mengalir hanya dalam satu arah, dari lapisan input ke lapisan output, melewati hidden layer (jika ada) tanpa adanya aliran balik (feedback loop). FNN cocok untuk tugas klasifikasi dan regresi dasar, di mana hubungan antara input dan output bersifat langsung tanpa mempertimbangkan urutan waktu.
 
 - **Contoh Penggunaan**: FNN dapat digunakan dalam pengenalan pola sederhana seperti klasifikasi gambar statis atau untuk memprediksi nilai berkelanjutan seperti harga berdasarkan fitur tertentu.
@@ -146,6 +150,10 @@ model = tf.keras.Sequential([
 ])
 ```
 ### Convolutional Neural Networks (CNNs)
+
+<p align="center">
+    <img src="contents/cnn.png" alt="Convolutional Neural Networks" width="720" align="center">
+</p>
 
 **Convolutional Neural Networks (CNNs)** adalah jaringan yang dirancang khusus untuk memproses data yang memiliki struktur grid, seperti gambar atau video. CNN menggunakan lapisan konvolusi untuk melakukan operasi pada patch-patch kecil dalam gambar, yang memungkinkan mereka menangkap fitur-fitur seperti tepi, tekstur, dan objek kompleks dengan efisiensi tinggi.
 
@@ -168,6 +176,10 @@ model = tf.keras.Sequential([
 ```
 
 ### Recurrent Neural Networks (RNNs)
+
+<p align="center">
+    <img src="contents/RNN.gif" alt="Recurrent Neural Networks" width="720" align="center">
+</p>
 
 **Recurrent Neural Networks (RNNs)** adalah tipe neural network yang cocok untuk data berurutan, seperti teks, data waktu, dan audio. Tidak seperti FNN, RNN memiliki “memori” internal melalui loop pada neuron, yang memungkinkan informasi sebelumnya disimpan dan digunakan dalam prediksi saat ini. Hal ini memungkinkan RNN mempertimbangkan urutan data atau konteks waktu.
 
