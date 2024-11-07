@@ -1,30 +1,34 @@
-## **Convolutional Neural Network**
+## 🧠 **Convolutional Neural Network**
 
-### **Definisi Convolutional Neural Network**
+### 📝 **Definisi Convolutional Neural Network**
 
-Convolutional Neural Network (CNN/ConvNet) merupakan bagian dari deep neural network, yakni jenis jaringan saraf tiruan yang umumnya digunakan dalam pengenalan dan pemrosesan gambar. Algoritma ini memiliki dua bagian utama yaitu bagian ekstraksi fitur dan bagian klasifikasi. Bagian ekstraksi fitur gambar dilakukan oleh Convolutional Backbone, sedangkan untuk bagian klasifikasi dilakukan oleh Classifier Head yang berisi Artificial Neural Network.
+Convolutional Neural Network (CNN/ConvNet) merupakan bagian dari *deep neural network*, yaitu jenis jaringan saraf tiruan yang banyak digunakan dalam pengenalan dan pemrosesan gambar. Algoritma ini memiliki dua bagian utama:
+- **Ekstraksi Fitur** 📸 dilakukan oleh **Convolutional Backbone**
+- **Klasifikasi** 🎯 dilakukan oleh **Classifier Head** yang berisi Artificial Neural Network.
 
 <div align="center">
     <img src="../contents/Fully-Connected-ANN.png" alt="Fully Connected ANN" width="720" align="center">
 </div>
 
-### **Arsitektur Convolutional Neural Network**
+---
+
+### 🛠️ **Arsitektur Convolutional Neural Network**
 
 #### **1. Convolution Layer**
 
-Convolutional layer merupakan proses konvolusi citra input dengan filter yang menghasilkan `feature map` (fitur-fitur penting sebuah gambar memberikan informasi jauh lebih besar dibanding gambar input itu sendiri).
+Convolutional layer melakukan konvolusi terhadap citra input dengan *filter* untuk menghasilkan `feature map` 🌌. `Feature map` menyimpan informasi penting dari gambar yang jauh lebih esensial dibandingkan gambar mentah.
 
 <div align="center">
     <img src="../contents/Conv-Backbone.gif" alt="Conv Backbone" width="720" align="center">
 </div>
 
-Proses konvolusi citra dengan filter dilakukan `sliding filter` mulai dari kiri atas dari matrik citra sampai kanan bawah.
+Proses konvolusi dilakukan dengan **sliding filter** dari kiri atas hingga kanan bawah matriks citra. 
 
 <div align="center">
     <img src="../contents/Conv.gif" alt="Convolution" width="720" align="center">
 </div>
 
-Convolutional layer akan mencari kernel/weight yang tepat. Semakin banyak kernel maka semakin banyak jenis fitur. Tujuan Convolutional layer ditumpuk agar informasi yang didapatkan semakin lebih bermakna.
+Convolutional layer akan menemukan *kernel* atau *weight* yang optimal. Semakin banyak *kernel*, semakin kaya fitur yang diekstrak 🧩. Penumpukan layer konvolusi memungkinkan informasi menjadi lebih bermakna dan berlapis.
 
 <div align="center">
     <img src="../contents/conv stride 1 pad 0.gif" alt="convolution" width="360" style="vertical-align:left">
@@ -37,12 +41,12 @@ Convolutional layer akan mencari kernel/weight yang tepat. Semakin banyak kernel
 
 ```python
 tf.keras.layers.Conv2D(
-    filters,
-    kernel_size,
-    strides=(1, 1),
-    padding='valid',
-    activation=None,
-    input_shape=(height, width, color_channels)
+    filters,          # Dimensi ruang output → jumlah filter output
+    kernel_size,      # Ukuran spasial filter (lebar/tinggi)
+    strides=(1, 1),   # Besar pergeseran filter dalam konvolusi
+    padding='valid',  # Jumlah padding → 'valid' tidak ada padding
+    activation=None,  # Fungsi aktivasi yang digunakan
+    input_shape=(height, width, color_channels)  # Input gambar
 )
 ```
 
@@ -57,10 +61,10 @@ tf.keras.layers.Conv2D(
 
 #### **2. Batch Normalization**
 
-Batch Normalization berperan untuk mengurangi pergeseran kovarian atau menyamakan distribusi setiap nilai input yang selalau berubah karena perubahan pada layer sebelumnya selama proses training.
+⚙️ Batch Normalization berfungsi untuk mengurangi *covariance shift* dengan menormalkan distribusi setiap nilai input yang berubah selama pelatihan 🔄. Hal ini membuat pelatihan lebih stabil dan cepat.
 
-<div align="center">
-    <img src="../contents/Batchnorm.png" alt="Batchnorm" width="360" align="center">
+<div align="center"> 
+    <img src="../contents/Batchnorm.png" alt="Batchnorm" width="360" align="center"> 
 </div>
 
 ```python
@@ -69,16 +73,9 @@ tf.keras.layers.BatchNormalization()
 
 #### **3. Pooling Layer**
 
-Pooling layer berperan untuk memperkecil dimensi feature image (downsampling) dan menyimpan informasi penting.
+Pooling layer digunakan untuk mengurangi dimensi citra fitur (downsampling) sambil mempertahankan informasi penting 🗜️.
 
-<div align="center">
-    <img src="../contents/Pooling-Process.png" alt="Pooling Process" width="720" align="center">
-</div>
-
-<div align="center">
-    <img src="../contents/Maxpool-Stride1-Pad1.gif" alt="convolution" width="360" style="vertical-align:left">
-    <img src="../contents/Maxpool-Stride2-Pad1.gif" alt="convolution" width="360" style="vertical-align:left">
-</div>
+<div align="center"> <img src="../contents/Pooling-Process.png" alt="Pooling Process" width="720" align="center"> </div> <div align="center"> <img src="../contents/Maxpool-Stride1-Pad1.gif" alt="convolution" width="360" style="vertical-align:left"> <img src="../contents/Maxpool-Stride2-Pad1.gif" alt="convolution" width="360" style="vertical-align:left"> </div>
 
 ```python
 tf.keras.layers.MaxPool2D(
@@ -102,12 +99,8 @@ tf.keras.layers.AveragePooling2D(
     - valid → tidak ada padding
     - same → padding nol merata kiri/kanan/atas/bawah
 
-### **Visualisasi Proses Konvolusi dan Pooling pada Gambar**
+### **🎨 Visualisasi Proses Konvolusi dan Pooling pada Gambar**
 
-Berikut adalah salah satu contoh bagaimana gambar anjing diproses setelah melewati Convolutional Backbone yang terdiri dari beberapa convolution layer dan max pooling layer. Terlihat pada gambar, fitur-fitur penting pada wajah anjing akan semakin muncul setelah dilakukan proses konvolusi dan pooling. Proses ini akan mempermudah model dalam mengenali gambar yang akan dilatih dan diprediksi nantinya.
+Contoh berikut menunjukkan bagaimana gambar anjing diproses setelah melewati Convolutional Backbone yang terdiri dari beberapa convolution layer dan max pooling layer. Terlihat pada gambar bahwa fitur-fitur penting pada wajah anjing mulai muncul setelah beberapa lapisan konvolusi dan pooling. Proses ini membantu model mengenali dan memprediksi gambar dengan lebih baik 📈.
 
-<div align="center">
-    <img src="../contents/Convolution-Visualization.png" alt="Convolution Visualization" width="720" align="center">
-</div>
-
-<br>
+<div align="center"> <img src="../contents/Convolution-Visualization.png" alt="Convolution Visualization" width="720" align="center"> </div> <br>
