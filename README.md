@@ -76,15 +76,7 @@ tf.keras.layers.InputLayer(input_shape=(height, width, color_channels))
 ```
 
 ```python
-tf.keras.layers.Conv2D(input_shape=(height, width, color_channels))
-```
-
-```python
 tf.keras.layers.Flatten(input_shape=(height, width, color_channels))
-```
-
-```python
-tf.keras.layers.Dense(input_shape=(height, width, color_channels))
 ```
 
 - input_shape/shape → dimensi ruang input
@@ -100,7 +92,7 @@ Hidden layer mengubah input dari lapisan input ke lapisan output. Dilakukan deng
 - Untuk mencegah `overfitting`, jumlah node (neuron) sebaiknya ditambahkan secara bertahap.
 
     ```python
-    tf.keras.layers.Dense(units, activation=None)
+    tf.keras.layers.Dense(units, activation='relu')
     ```
 
     - units → dimensi ruang output

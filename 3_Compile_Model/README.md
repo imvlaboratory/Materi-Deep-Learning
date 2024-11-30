@@ -23,12 +23,14 @@ early_stopping = EarlyStopping(monitor='val_loss',
 ### 3.2 Mengompilasi Model
 Setelah callback didefinisikan, langkah berikutnya adalah mengompilasi model dengan optimizer, loss function, dan metrik yang diperlukan:
 
+```python
+model.compile(optimizer='adam',loss='binary_crossentropy',metrics=[BinaryAccuracy(), Precision(), Recall()])
+```
+
 - optimizer='adam': Optimizer Adam digunakan karena adaptif dan stabil dalam proses pelatihan.
 - loss='binary_crossentropy': Loss function binary_crossentropy dipilih karena ini adalah masalah klasifikasi biner.
 metrics=[BinaryAccuracy(), Precision(), Recall()]: Metrik evaluasi yang digunakan adalah:
 - BinaryAccuracy: Mengukur akurasi model pada klasifikasi biner.
 - Precision: Mengukur ketepatan model dalam memprediksi kelas positif.
 - Recall: Mengukur sensitivitas model dalam mendeteksi kelas positif.
-```python
-model.compile(optimizer='adam',loss='binary_crossentropy',metrics=[BinaryAccuracy(), Precision(), Recall()])
-```
+

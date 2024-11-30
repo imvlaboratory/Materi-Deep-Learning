@@ -7,3 +7,10 @@ cat_dog = model.fit(train_generator,
                     epochs = 100,
                    )
 ```
+- train_generator → Dataset untuk pelatihan.
+- validation_data → Dataset untuk validasi.
+- callback → [early_stopping, learning_rate_reduction]:
+    - early_stopping → Menghentikan pelatihan lebih awal jika model tidak lagi menunjukkan perbaikan.
+    - learning_rate_reduction → Mengurangi learning rate jika kinerja model stagnan.
+- epochs → Menentukan jumlah epoch pelatihan, 100 kali iterasi.
+
