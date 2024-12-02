@@ -55,9 +55,4 @@ model.summary()
 - Diikuti oleh lapisan Dense dengan 512 neuron dan fungsi aktivasi ReLU, BatchNormalization, serta Dropout(0.2).
 6. Lapisan Output
 - Lapisan terakhir adalah lapisan Dense dengan satu neuron dan fungsi aktivasi sigmoid untuk klasifikasi biner (kucing atau anjing).
-### 2.2 Gambar Arsitektur Model
-Untuk representasi arsitektur model, gambar berikut menunjukkan diagram arsitektur CNN dari lapisan input hingga lapisan output.
-
-
-Pada diagram ini, setiap blok konvolusi diikuti oleh lapisan batch normalization, pooling, dan dropout. Lapisan fully connected dan output melengkapi arsitektur, membuat model siap untuk klasifikasi biner antara kategori "Cat" dan "Dog."
 
