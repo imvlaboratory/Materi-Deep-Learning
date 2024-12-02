@@ -220,4 +220,4 @@ Nilai learning rate berpengaruh pada perhitungan bobot baru, umumnya penggunaan 
 
 <h2 align="center">Keperluan Hands On</h2>
 
-- Code : [**CNN Image Classification**](https://www.kaggle.com/code/raihanradhityas/transfer-learning-week-4-cnn-image-classification)
+- Code : [**CNN Image Classification**](https://www.kaggle.com/code/raihanradhityas/transfer-learning-week-4-image-classification)
